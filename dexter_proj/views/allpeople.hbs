@@ -1,0 +1,36 @@
+{{> adminnavbar}}
+
+
+    
+ <h2 style="text-align: center;color:black"> <b>ALL USER LIST</b></h2>
+
+     <table class="table table-hover table-bordered">
+       <thead>
+         <tr>
+             <th>NAME</th>
+             <th>WORKER ID</th>
+             <th>TASK</th>
+             <th>SITE</th>
+             <th></th>
+         </tr>
+       </thead>
+        {{#each people}}
+            <tr id = "this.worker_id">
+                <td>{{ this.username }}</td>
+                <td>{{ this.wid }}</td>
+                <td>I Love</td>
+                <td>You</td>
+                <td>
+                     <form action="/admindeleteuser" method="POST">
+                         
+                         <input type="submit" class="btn btn-danger" name="usertodelete" value={{this.wid}}>
+                        
+                     </form>
+                      
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+    
+
+   

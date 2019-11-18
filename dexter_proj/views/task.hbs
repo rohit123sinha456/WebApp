@@ -1,0 +1,34 @@
+
+{{>navbar}}
+    <h2 style="text-align: center;color: BLack"> USER TASK</h2>
+
+     <table class="table table-hover table-bordered">
+       <thead>
+         <tr>
+             <th>NAME</th>
+             <th>WORKER ID</th>
+             <th>TASK</th>
+             <th>SITE</th>
+            
+             <th></th>
+         </tr>
+       </thead>
+       <tr>
+       </tr>
+        {{#each databaseinfo}}
+            <tr>
+                <td>{{ this.taskname }}</td>
+                <td>{{ this.tasksite }}</td>
+                <td>{{ this.username }}</td>
+                <td>SITE 1</td>
+                <td>
+                     <!-- <form action="/accepttask" method="POST"></form>-->
+                      <input type="submit" class="btn btn-success" id = "btn2" value="ACCEPT" onclick="disable(this); getLocation() "> 
+                      <!--</form>-->
+                     <!--<form action="/declinetask" method="POST">-->
+                        <input type="submit" class="btn btn-danger" id = "btn1" value = " DECLINE " onclick="disable(this); getLocation() "> 
+                    <!-- </form>-->
+                </td>
+            </tr>
+        {{/each}}
+    </table>

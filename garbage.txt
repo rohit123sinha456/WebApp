@@ -1,0 +1,43 @@
+var req = https.request(reqhttp,(res)=>{
+        console.log('statusCode:', res.statusCode);
+        console.log('headers:', res.headers);
+
+    })
+    req.on('error', (e) => {
+        console.error(e);
+      });
+    req.end();
+    }
+
+    
+
+
+    model.find({ wid: widbody }, (err, docs) => {
+        if (err) {
+            console.log("error in finding")
+        }
+        else {
+            console.log("documents found")
+            console.log(docs[0].task)
+            console.log(typeof (docs[0].task))
+            records = docs[0].task
+            console.log("type of records")
+            console.log(typeof (records))
+            console.log("type of new records")
+            console.log(typeof (newrecords))
+            console.log("Pushing in the new records")
+            records = Object.assign(newrecords,records)
+            model.findOneAndUpdate({ wid: widbody }, { task: records }, (err, docs) => {
+                if (err) {
+                    console.log("error in updating")
+                    console.log(err)
+                    res.send("false")
+                }
+                else {
+                    console.log("updated")
+                    res.send("true")
+                }
+            })
+        }
+    })
+}

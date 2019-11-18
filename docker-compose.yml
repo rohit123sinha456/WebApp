@@ -1,0 +1,36 @@
+version : "2"
+services:
+  login:
+    build: dexter_proj
+    ports: 
+      - "3000:3000"
+    links:
+      - adminstator
+      - database
+      - task
+      - people
+      - adduser
+  adduser:
+    build: adduser
+    links:
+      - database
+  people:
+    build: people
+    links:
+      - database
+  task:
+    build: people_task
+    links:
+      - database
+  database:
+    image: mongo
+    ports:
+      - "27017:27017"
+  adminstator:
+    build: dexter_admin
+    links:
+      - database
+networks:
+  default:
+    external:
+      name: mynewnet

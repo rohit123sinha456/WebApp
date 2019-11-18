@@ -1,0 +1,155 @@
+{{>adminnavbar}}
+<pre>
+<div class="card-deck myspace padding scrollTo">
+
+    <div class="card text-center homecard">
+        <div class="card-header">
+            <h3 style="font-weight : bold">ADD USER</h3>
+        </div>
+        <div class="card-body">
+            
+            <p class="card-text">Add in more users to your company.
+            </p>
+        </div>
+        <div class="card-footer">
+            <button type="button" class="btn btn-dark btn-block" data-toggle="modal" data-target="#myModal">Add Users</button>
+            <small class="text-muted"></small>
+        </div>
+    </div>
+
+    <div class="card text-center homecard">
+        <div class="card-header">
+            <h3 style="font-weight: bolder;">ADD TASK</h3>
+        </div>
+        <div class="card-body">
+            
+            <p class="card-text">Give away task to your users.
+            </p>
+        </div>
+        <div class="card-footer">
+                <button class="btn btn-dark btn-block" data-toggle="modal" data-target="#taskModal">ADD TASK</button>
+            <small class="text-muted"></small>
+        </div>
+    </div>
+
+
+    <div class="card text-center homecard">
+        <div class="card-header">
+            <h3 style="font-weight: bolder;">ALL USERS</h3>
+        </div>
+        <div class="card-body">
+            
+            <p class="card-text">View all the users of your company and their tasks.
+            </p>
+        </div>
+        <div class="card-footer">
+            <form action="/admin/showuser" method="GET">
+                <button class="btn btn-dark btn-block">ALL USER</button></form>
+            <small class="text-muted"></small>
+        </div>
+    </div>
+
+
+    
+</div>
+
+</div>
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form action="/adduser" method="POST">
+                <div class="modal-header">
+                    <h4 class="modal-title">Create Account</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="pid" class="text-uppercase font-weight-bold text-primary">PID</label>
+                        <input type="pid" name="pid" class="form-control" placeholder="Enter the PID" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="text-uppercase font-weight-bold text-primary">Name</label>
+                        <input type="text" name="fullname" class="form-control" placeholder="Enter  Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobileno" class="text-uppercase font-weight-bold text-primary">Mobile No</label>
+                        <input type="tel" name="mobileno" class="form-control" placeholder="Enter  Mobile No" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="comp" class="text-uppercase font-weight-bold text-primary">Company</label>
+                        &nbsp;&nbsp;&nbsp;
+                        <select name="comp">
+                            <option value="null"></option>
+                            <option value="DE">DE</option>
+                            <option value="DF">DF</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="text-uppercase font-weight-bold text-primary">Password</label>
+                        <input type="password" name="password" class="form-control"
+                            placeholder="Enter password for User" required>
+                    </div>
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-dark btn-block">ADD USER</button>
+
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="taskModal">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <form action="/addtask" method="POST">
+                <div class="modal-header">
+                    <h4 class="modal-title">Allocate Task</h4>
+                </div>
+
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="password" class="text-uppercase font-weight-bold text-dark">Worker Id</label>
+                        <input type="text" name="workerid" class="form-control" placeholder="Enter WID for User"
+                            required>
+                    </div>
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-dark btn-block">Next</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
